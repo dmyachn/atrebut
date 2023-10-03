@@ -9,29 +9,11 @@ import SwiftUI
 
 struct ContentView: View {
     @State private var size = 300.0
-    var maraphone: AttributedString {
-        var result = AttributedString("Mарафон ")
-        result.foregroundColor = .gray
-        return result
-    }
-    
-    
-    var swift: AttributedString {
-        var result = AttributedString("по SwiftUI")
-        return result
-    }
-    
-    var father: AttributedString {
-        var result = AttributedString(" «Отцовский пинок»")
-        result.font = .boldSystemFont(ofSize: 35)
-        
-        result.foregroundColor = .blue
-        return result
-    }
-    
     var body: some View {
         VStack{
-            Text(maraphone + swift + father)
+            Group{
+                Text("Mарафон ").foregroundColor(.gray) + Text("по SwiftUI ") + Text("«Отцовский пинок»").font(Font.largeTitle).bold().foregroundColor(.blue)
+            }
                 .frame(width: size)
                 .border(.green)
             Slider(
